@@ -46,13 +46,6 @@ COMMANDS                                                   *parinfer-commands*
 :ToggleParinferMode    Toggle between the different parinfer modes (from
                        'indent' to 'paren', and vice-versa)
 
-MAPPINGS                                                   *parinfer-mappings*
-
->>           indents s-expression
-<<           dedents s-expression
-dd           deletes line and balances parenthesis
-p            puts line and balances parenthesis
-
 NOTES                                                         *parinfer-notes*
 
-since v 1.0.0. uses pure vimscript for parinfer parsing
+since v1.0.0 uses pure vimscript for parinfer parsing

@@ -180,26 +180,12 @@ nnoremap <Plug>ParinferDoIndent :call parinfer#do_indent()<cr>
 nnoremap <Plug>ParinferDoUndent :call parinfer#do_undent()<cr>
 vnoremap <Plug>ParinferDoIndent :call parinfer#do_indent()<cr>
 vnoremap <Plug>ParinferDoUndent :call parinfer#do_undent()<cr>
-nnoremap <Plug>ParinferDeleteLine:call parinfer#delete_line()<cr>
+nnoremap <Plug>ParinferDeleteLine :call parinfer#delete_line()<cr>
 nnoremap <Plug>ParinferPutLine :call parinfer#put_line()<cr>
 
 augroup parinfer
   autocmd!
   execute "autocmd FileType " . join(g:vim_parinfer_filetypes, ",") . " autocmd InsertLeave <buffer> call parinfer#process_form()"
-
-  if exists('##TextChangedI')
-    execute "autocmd FileType " . join(g:vim_parinfer_filetypes, ",") . " autocmd TextChangedI <buffer> call parinfer#process_form_insert()"
-  endif
-
-  if exists('##TextChanged')
-    execute "autocmd FileType " . join(g:vim_parinfer_filetypes, ",") . " autocmd TextChanged <buffer> call parinfer#process_form()"
-  else
-    execute "autocmd FileType " . join(g:vim_parinfer_filetypes, ",") . " nmap <buffer> >> <Plug>ParinferDoIndent"
-    execute "autocmd FileType " . join(g:vim_parinfer_filetypes, ",") . " nmap <buffer> << <Plug>ParinferDoUndent"
-    execute "autocmd FileType " . join(g:vim_parinfer_filetypes, ",") . " vmap <buffer> >> <Plug>ParinferDoIndent"
-    execute "autocmd FileType " . join(g:vim_parinfer_filetypes, ",") . " vmap <buffer> << <Plug>ParinferDoUndent"
-    " dd and p trigger paren rebalance
-    execute "autocmd FileType " . join(g:vim_parinfer_filetypes, ",") . " nmap <buffer> dd <Plug>ParinferDeleteLine"
-    execute "autocmd FileType " . join(g:vim_parinfer_filetypes, ",") . " nmap <buffer> p  <Plug>ParinferPutLine"
-  endif
+  execute "autocmd FileType " . join(g:vim_parinfer_filetypes, ",") . " autocmd TextChangedI <buffer> call parinfer#process_form_insert()"
+  execute "autocmd FileType " . join(g:vim_parinfer_filetypes, ",") . " autocmd TextChanged <buffer> call parinfer#process_form()"
 augroup END
