@@ -6,9 +6,9 @@ It uses [Chris Oakman's awesome viml implementation](https://github.com/oakmac/p
 
 <h5 style="color: blue;"> pull requests // issues welcome </h5>
 
-## Installation 
+## Installation
 
-### using pathogen: 
+### using pathogen:
 
 ```
 cd ~/.vim/bundle
@@ -16,7 +16,7 @@ git clone git://github.com/bhurlow/vim-parinfer.git
 ```
 ### using Vundle:
 
-add 
+add
 
 ```
 Plugin 'bhurlow/vim-parinfer'
@@ -25,13 +25,13 @@ Plugin 'bhurlow/vim-parinfer'
 to your `.vimrc`
 
 run
- 
+
 ```
 :PluginInstall
 ```
 
 
-## Mappings 
+## Mappings
 
 Parinfer is trigger on all TextChanged events within vim. If your version of
 Vim does not support the 'TextChanged' autocommand event you may use the
